@@ -1,0 +1,232 @@
+* {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(img-src/megumin.kece.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: black;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+
+.formCalculator {
+    background-color: #d3010b;
+    color: #f5de12;
+    padding: 30px;
+    border: solid 2px;
+    border-radius: 20px;
+}   
+
+.headerText {
+    font-size: 25px;
+    margin: 0px 0px 10px 0px;
+}
+
+input {
+    width: 100px;
+    height: 50px;
+    margin: 0px 2px 5px 2px;
+    background-color: #c4b217;
+    color: rgb(0, 0, 0);
+    border: 1px;
+    font-weight: lighter;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.inputHeader {
+    margin: 20px 2px 5px 2px;
+}
+
+#reset {
+    width: 13.9em;
+}
+
+.content {
+    width: 400px;
+    height: 60px;
+    border: 0px;
+    color: #f5de12;
+    background-color: #5A2005;
+    font-size: 40px;
+    padding: 5px 0px 0px 0px;
+}
+
+.contentDetail {
+    padding: 0px 0px 0px 10px;
+    width: 420px;
+    background-color: #5A2005;
+    border: 2px;
+    border: solid 1px;
+}
+
+.footer {
+    color: #f1dd29;
+    text-shadow: 0 0 3px #ca0707, 0 0 5px #f1dd29;
+    margin-top: 80px;
+}
+
+p {
+    color: #979914;
+    font-weight: lighter;
+    padding: 0px 0px 5px 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    * {
+        margin: 0px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        background-image: url(img-src/megumin.kece.gif);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color: black;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+    }
+    
+    .formCalculator {
+        width: 410px;
+        background-color: #d3010b;
+        color: #f5de12;
+        padding: 20px;
+        border: solid 2px;
+        border-radius: 20px;
+    }   
+    
+    .headerText {
+        font-size: 25px;
+        margin: 0px 0px 10px 0px;
+    }
+    
+    input {
+        width: 95px;
+        height: 50px;
+        margin: 0px 2px 5px 2px;
+        background-color: #c4b217;
+        color: rgb(0, 0, 0);
+        border: 1px;
+        font-weight: lighter;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .inputHeader {
+        margin: 20px 2px 5px 2px;
+    }
+    
+    #reset {
+        width: 13.2em;
+    }
+    
+    .content {
+        width: 380px;
+        height: 60px;
+        border: 0px;
+        color: #f5de12;
+        background-color: #5A2005;
+        font-size: 40px;
+        padding: 5px 0px 0px 0px;
+    }
+    
+    .contentDetail {
+        padding: 0px 0px 0px 10px;
+        width: 397px;
+        background-color: #5A2005;
+        border: 2px;
+        border: solid 1px;
+    }
+
+    .footer {
+        color: #f1dd29;
+        text-shadow: 0 0 3px #ca0707, 0 0 5px #f1dd29;
+        margin-top: 70px;
+    }
+    
+    p {
+        color: #979914;
+        font-weight: lighter;
+        padding: 0px 0px 5px 0px;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .formCalculator {
+        background-color: #d3010b;
+        color: #f5de12;
+        width: 210px;
+        height: 280px;
+        padding: 10px;
+        border: solid 2px;
+        border-radius: 20px;
+    }   
+    .headerText {
+        font-size: 12px;
+        margin: 0px 0px 10px 0px;
+    }
+    
+    input {
+        width: 45px;
+        height: 30px;
+        margin: 0px 2px 5px 2px;
+        background-color: #c4b217;
+        color: rgb(0, 0, 0);
+        font-weight: lighter;
+        font-size: 15px;
+    }
+    
+    .inputHeader {
+        margin: 10px 2px 5px 2px;
+    }
+    
+    #reset {
+        width: 99px;
+    }
+    
+    .content {
+        border: 1px solid #f5de12;
+        width: 180px;
+        height: 22px;
+        border: 0px;
+        color: #f5de12;
+        font-size: 20px;
+        padding: 5px 0px 0px 0px;
+    }
+    
+    .contentDetail {
+        padding: 0px 0px 0px 10px;
+        width: 200px;
+        background-color: #5A2005;
+        border: solid 1px;
+
+    }
+    
+    p {
+        color: #979914;
+        font-weight: lighter;
+        font-size: 10px;
+        padding: 0px 0px 2px 0px;
+    }
+
+    .footer {
+        font-size: 20px;
+        color: #f1dd29;
+        text-shadow: 0 0 3px #ca0707, 0 0 5px #f1dd29;
+        margin-top: 50px;
+    }
+}

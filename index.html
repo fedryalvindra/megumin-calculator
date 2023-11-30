@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megumin calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="kalkulator" class="container">
+        <form class="calculator" name="Calculator">
+            <div id="formCalculator" class="formCalculator">
+                <h1 class="headerText">CALCULATE THE EXPLOSION!</h1>
+                    <div id="contentDetail" class="contentDetail">
+                        <input id="content" class="content" type="text">
+                    </div>
+                        <br>
+                        <input id="reset" class="inputHeader" name="button" type="button" value="C">
+                        <input id="modulo" class="inputHeader" name="button" type="button" value="%">
+                        <input id="delete" class="inputHeader" name="button" type="button" value="DE">
+                        <br>
+                        <input class="number" name="button" type="button" value="7">
+                        <input class="number" name="button" type="button" value="8">
+                        <input class="number" name="button" type="button" value="9">
+                        <input id="times" name="button" type="button" value="X">
+                        <br>
+                        <input class="number" name="button" type="button" value="4">
+                        <input class="number" name="button" type="button" value="5">
+                        <input class="number" name="button" type="button" value="6">
+                        <input id="mines" name="number" type="button" value="-">
+                        <br>
+                        <input class="number" name="button" type="button" value="1">
+                        <input class="number" name="button" type="button" value="2">
+                        <input class="number" name="button" type="button" value="3">
+                        <input id="plus" name="button" type="button" value="+">
+                        <br>
+                        <input id="divide" name="button" type="button" value=":">
+                        <input class="number" name="button" type="button" value="0">
+                        <input id="koma" name="button" type="button" value=".">
+                        <input id="equals" name="button" type="button" value="=">
+                </div>
+        </form>
+        <h1 class="footer">Calculator by Fedry</h1>
+    </div>
+<script>
+    const contentDetail = document.getElementById("contentDetail");
+    let kondisi = "available";
+    const arrContentValue = [];
+    const content = document.getElementById("content");
+    const numberBtn = document.querySelectorAll(".number");
+    const komaBtn = document.getElementById("koma"); 
+
+    const p = document.createElement("p");
+
+    function addData(data, datas) {
+        return datas.push(data);
+    }
+
+    function addTextCalculation() {
+        p.textContent = arrContentValue[0];
+        contentDetail.appendChild(p);
+        console.log(arrContentValue);
+    }
+
+    function BeforeCalculation() {
+        if (kondisi == "plus") {
+            content.value = Number(arrContentValue.shift()) + Number(content.value);
+        } else if (kondisi == "mines") {
+            content.value = Number(arrContentValue.shift()) - Number(content.value);
+        } else if (kondisi == "times") {
+            content.value = Number(arrContentValue.shift()) * Number(content.value);
+        } else if (kondisi == "divide") {
+            content.value = Number(arrContentValue.shift()) / Number(content.value);
+        } else if (kondisi == "modulo") {
+            content.value = Number(arrContentValue.shift()) % Number(content.value);
+        }
+    }
+
+    function reset() {
+        kondisi = "reset"
+        content.value = "";
+        p.textContent = null;
+        arrContentValue.shift();
+    }
+
+    function Calculation() {
+        if (kondisi == "plus") {
+            addData(content.value, arrContentValue);
+            content.value = null;
+            console.log(content.value);
+            komaClick();
+            addTextCalculation();
+            if (arrContentValue.length > 1) {
+                content.value = null;
+                let kalkulasi = Number(arrContentValue.shift());
+                kalkulasi += Number(arrContentValue[0]);
+                arrContentValue.push(kalkulasi);
+                arrContentValue.shift();
+                addTextCalculation();
+            } 
+        } else if (kondisi == "mines") {
+            addData(content.value, arrContentValue);
+            content.value = null;
+            addTextCalculation();
+            if (arrContentValue.length > 1) {
+                content.value = null;
+                let kalkulasi = Number(arrContentValue.shift());
+                kalkulasi -= Number(arrContentValue[0]);
+                arrContentValue.push(kalkulasi);
+                arrContentValue.shift();
+                addTextCalculation();
+            } 
+        } else if (kondisi == "times") {
+            addData(content.value, arrContentValue);
+            content.value = null;
+            addTextCalculation();
+            if (arrContentValue.length > 1) {
+                content.value = null;
+                let kalkulasi = Number(arrContentValue.shift());
+                kalkulasi *= Number(arrContentValue[0]);
+                arrContentValue.push(kalkulasi);
+                arrContentValue.shift();
+                addTextCalculation();
+            } 
+        } else if (kondisi == "divide"){
+            addData(content.value, arrContentValue);
+            content.value = null;
+            addTextCalculation();
+            if (arrContentValue.length > 1) {
+                content.value = null;
+                let kalkulasi = Number(arrContentValue.shift());
+                kalkulasi /= Number(arrContentValue[0]);
+                arrContentValue.push(kalkulasi);
+                arrContentValue.shift();
+                addTextCalculation();
+            } 
+        } else if (kondisi == "modulo") {
+            addData(content.value, arrContentValue);
+            content.value = null;
+            addTextCalculation();
+            if (arrContentValue.length > 1) {
+                content.value = null;
+                let kalkulasi = Number(arrContentValue.shift());
+                kalkulasi = kalkulasi % Number(arrContentValue[0]);
+                arrContentValue.push(kalkulasi);
+                arrContentValue.shift();
+                addTextCalculation();
+            } 
+        }
+    }
+
+    function komaClick() {
+        if (content.value !== null) {
+                komaBtn.addEventListener("click", removeKomaClick); 
+            } 
+    }
+
+    function removeKomaClick() {
+        content.value += koma.value;
+        komaBtn.removeEventListener("click", removeKomaClick);   
+    }
+
+    function validationNaN() {
+        if (content.value == "NaN") {
+            content.value = "";
+        }
+    }
+    
+    numberBtn.forEach(function(button) {
+        button.addEventListener("click", function () {
+            content.value += button.value;
+            komaClick();
+            if (kondisi == "equals") {
+                content.value = button.value;
+                kondisi = "back";
+            }
+        })
+    });
+
+    const plusBtn = document.getElementById("plus");
+    plusBtn.addEventListener("click", function () {
+        BeforeCalculation();
+        kondisi = "plus";
+        Calculation();
+    });
+
+    const minesBtn = document.getElementById("mines");
+    minesBtn.addEventListener("click", function() {
+        BeforeCalculation();
+        kondisi = "mines";
+        Calculation();
+    });
+
+    const timesBtn = document.getElementById("times");
+    timesBtn.addEventListener("click", function() {
+        BeforeCalculation();
+        kondisi = "times";
+        Calculation();
+    });
+
+    const divideBtn = document.getElementById("divide");
+    divideBtn.addEventListener("click", function () {
+        BeforeCalculation();
+        kondisi = "divide";
+        Calculation();
+    });
+
+    const moduloBtn = document.getElementById("modulo");
+    moduloBtn.addEventListener("click", function() {
+        BeforeCalculation();
+        kondisi = "modulo";
+        Calculation();
+    })
+
+    const deleteBtn = document.getElementById("delete");
+    deleteBtn.addEventListener("click", function() {
+        const contentValue = content.value;
+        content.value = content.value.substring(0, contentValue.length -1);
+    })
+
+    const resetContent = document.getElementById("reset");
+    resetContent.addEventListener("click", reset);
+
+    const equals = document.getElementById("equals");
+    equals.addEventListener("click" , function() {
+        if (kondisi == "plus") {
+            kondisi = "equals";
+            content.value = Number(arrContentValue.shift()) + Number(content.value);
+            addTextCalculation();
+            validationNaN();
+        } else if (kondisi == "mines") {
+            kondisi = "equals";
+            content.value = Number(arrContentValue.shift()) - Number(content.value);
+            addTextCalculation();
+            validationNaN();
+        } else if (kondisi == "times") {
+            kondisi = "equals";
+            content.value = Number(arrContentValue.shift()) * Number(content.value);
+            addTextCalculation();
+            validationNaN();
+        } else if (kondisi == "divide") {
+            kondisi = "equals";
+            validationNaN();
+            content.value = Number(arrContentValue.shift()) / Number(content.value);
+            addTextCalculation();
+        } else if (kondisi == "modulo") {
+            kondisi = "equals";
+            content.value = Number(arrContentValue.shift()) % Number(content.value);
+            addTextCalculation();
+            validationNaN();
+        } else if (kondisi == "reset") {
+            kondisi = "equals"
+        } 
+    });
+
+</script>
+</body>
+</html>
